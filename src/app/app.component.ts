@@ -9,10 +9,10 @@ import { Title } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
   appName = "MyBiblio"
   title = 'biblioIUC';
-  constructor(private pageTitle: Title){
-  
+  constructor(private pageTitle: Title) {
+
   }
-  ngOnInit(){
-    this.pageTitle.setTitle(this.appName + " - Dashboard");
+  ngOnInit() {
+    this.pageTitle.setTitle(this.appName + ' - Dashboard');
   }
 }

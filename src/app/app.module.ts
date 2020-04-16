@@ -3,12 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Categorie } from './pages/categorie.edit/categorie.edit.component';
-
 @NgModule({
   declarations: [
-    AppComponent,
-    Categorie.EditComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
