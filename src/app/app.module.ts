@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CategorieEditComponent } from './pages/categorie-edit/categorie-edit.component';
+import { CategorieListComponent } from './pages/categorie-list/categorie-list.component';
+import { CategorieDetailComponent } from './pages/categorie-detail/categorie-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    CategorieEditComponent
+    CategorieEditComponent,
+    CategorieListComponent,
+    CategorieDetailComponent
   ],
   imports: [
     BrowserModule,
