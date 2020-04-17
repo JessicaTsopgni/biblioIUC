@@ -28,10 +28,16 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Bar Chart Example
+var tbi = 0;
 var tb = window.setInterval(function() {
     var ctx = document.getElementById("myBarChart");
-    if (ctx != null)
-        window.clearInterval(tb);
+    if(tbi === 10)
+        window.clearInterval(ta);
+    if (ctx == null)
+    {
+        tbi++;
+        return;
+    }
     var myBarChart = new Chart(ctx, {
         type: 'bar',
         data: {

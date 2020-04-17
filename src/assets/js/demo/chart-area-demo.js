@@ -29,8 +29,16 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 
 // Area Chart Example
+var tai = 0;
 var ta = window.setInterval(function() {
     var ctx = document.getElementById("myAreaChart");
+    if(tai === 10)
+        window.clearInterval(ta);
+    if (ctx == null)
+    {
+        tai++;
+        return;
+    }
     if (ctx != null)
         window.clearInterval(ta);
     var myLineChart = new Chart(ctx, {
