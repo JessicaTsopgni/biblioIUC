@@ -1,0 +1,72 @@
+<!— Page Heading —>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Liste des catégories</h1>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <button class="btn btn-primary btn-circle" title="Nouveau">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-md-6" style="text-align: end;">
+        <div id="dataTable_filter" class="dataTables_filter">
+            <input type="search" class="form-control " placeholder="Rechercher" aria-controls="dataTable">
+        </div>
+    </div>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>IMAGE</th>
+            <th>NOM</th>
+            <th>PARENT</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>Informatique</td>
+            <td>Aucun parent</td>
+            <td>
+                <button class="btn btn-primary btn-circle" title="Détail">
+                    <i class="fas fa-info"></i>
+                </button>&nbsp;
+                <button class="btn btn-success btn-circle" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                </button>&nbsp;
+                <button class="btn btn-danger btn-circle" title="Supprimer">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Droit</td>
+            <td>Aucun parent</td>
+            <td>
+                <button class="btn btn-primary btn-circle" title="Détail">
+                    <i class="fas fa-info"></i>
+                </button>&nbsp;
+                <button class="btn btn-success btn-circle" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                </button>&nbsp;
+                <button class="btn btn-danger btn-circle" title="Supprimer">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ul class="pagination">
+    <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+    <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+    <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+    <li class="paginate_button page-item next" id="dataTable_next"><a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+</ul>
