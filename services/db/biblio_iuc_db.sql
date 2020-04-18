@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 15 avr. 2020 à 20:08
+-- Généré le :  ven. 17 avr. 2020 à 18:01
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -25,26 +25,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categorie`
+-- Structure de la table `category`
 --
 
-DROP TABLE IF EXISTS `categorie`;
-CREATE TABLE IF NOT EXISTS `categorie` (
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` varchar(200) DEFAULT NULL,
-  `categorie_parent_id` int(11) DEFAULT NULL,
+  `category_parent_id` int(11) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `status` smallint(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ix_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `categorie`
+-- Déchargement des données de la table `category`
 --
 
-INSERT INTO `categorie` (`id`, `name`, `description`, `categorie_parent_id`, `image`, `status`) VALUES
+INSERT INTO `category` (`id`, `name`, `description`, `category_parent_id`, `image`, `status`) VALUES
 (1, 'Informatique', 'TIC, Génie logiciel, Réseau, Sécurité informatique, Télécommunication, Infographie, etc.', NULL, NULL, 1);
 COMMIT;
 
