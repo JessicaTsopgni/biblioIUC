@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { CategorieEditComponent } from './pages/categorie-edit/categorie-edit.component';
-import { CategorieListComponent } from './pages/categorie-list/categorie-list.component';
-import { CategorieDetailComponent } from './pages/categorie-detail/categorie-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CategoryEditComponent } from './categories/category-edit/category-edit.component';
+import { CategoryListComponent } from './categories/category-list/category-list.component';
+import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    CategorieEditComponent,
-    CategorieListComponent,
-    CategorieDetailComponent
+    CategoryEditComponent,
+    CategoryListComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
