@@ -1,0 +1,92 @@
+<!--Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Création d'une catégorie</h1>
+</div>
+<form #myForm="ngForm" (ngSubmit)="save(myForm)">
+    <input type="hidden" name="id" id="id" [(ngModel)]="category.id" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="name">Nom*</label>
+                <input maxlength="50" type="text" class="form-control" placeholder="Entrez le nom de la catégorie"
+                    name="name" id="name" [(ngModel)]="category.name" required #name="ngModel"
+                    [class.is-invalid]="name.invalid && name.touched" [class.is-valid]="name.valid && name.touched" />
+                <small class="text-danger" [class.d-none]="name.valid || name.untouched">Le nom est requis !</small>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea maxlength="200" class="form-control" placeholder="Decrivez brièvement la catégorie"
+                    name="description" id="description" [(ngModel)]="category.description" #description="ngModel"
+                    [class.is-valid]="description.valid && description.touched"></textarea>
+                <small class="text-danger" [class.d-none]="description.valid || description.untouched"></small>
+            </div>
+            <div class="form-group">
+                <label for="category_parent_id">Choisissez un parent</label>
+                <select class="custom-select" name="category_parent_id" id="category_parent_id"
+                    [(ngModel)]="category.category_parent_id" #category_parent_id="ngModel"
+                    [class.is-valid]="category_parent_id.valid && category_parent_id.touched">
+                    <option value="">Aucun parent</option>
+                </select>
+                <small class="text-danger"
+                    [class.d-none]="category_parent_id.valid || category_parent_id.untouched"></small>
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <div class="custom-control custom-switch custom-switch-lg justify-content-center align-items-center">
+                    <input type="checkbox" class="custom-control-input" name="status" id="status"
+                        [(ngModel)]="category.status">
+                    <label class="custom-control-label" [class.text-success]="category.status"
+                        for="status">{{category.status | enableDisable}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="image">Image illustrative <i>(max. : 2Mo)</i></label>
+                <div id="preview" class="card justify-content-center align-items-center"
+                    style="height: 300px;cursor: pointer;background-color: transparent;" (click)="image.click()">
+                    <i *ngIf="!category.image_link" class="fas fa-image" style="font-size: 1000%;"></i>
+                    <img *ngIf="category.image_link" [src]="category.image_link" class="img-fluid" />
+                    <p>Parcourir...</p>
+                </div>
+                <input type="file" #image name="image" id="image" style="display: none;"
+                    (change)="uploadFile($event)" />
+            </div>
+        </div>
+    </div>
+    <div class="row flex-row-reverse">
+        <div class="col-md-6 mb-4">
+            <button [disabled]="myForm.form.invalid || isBusy" class="btn btn-success btn-block" type="submit">
+                <i class="fas fa-check"></i>
+                Enregistrer
+            </button>
+            <div class="form-group progress mt-1" [class.d-none]="!isBusy" style="height: 5px;">
+                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
+                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <button routerLink="/category/list" class="btn btn-secondary btn-block">
+                <i class="fas fa-undo"></i>
+                Annuler
+            </button>
+            <small><i>* information requise.</i></small>
+        </div>
+    </div>
+</form>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+ data-delay="5000"
+    style="min-width:300px;position: absolute; top: 0rem; right: 1.5rem;">
+    <div class="toast-header">
+
+        <strong class="mr-auto"><i class="text-success fas fa-book"></i> MyBiblio</strong>
+        <small>54 sec</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body text-success">
+       <i class="fas fa-thumbs-up"></i> Enregistrement effectué avec succès.
+    </div>
+</div>

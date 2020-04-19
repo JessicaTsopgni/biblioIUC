@@ -13,6 +13,10 @@
         return null;
     }
 
+    function check_bool($Value) {
+        return null !== filter_var($Value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+      }
+
      //$upload_file_tmp_name === $FILES['<field_name>']['tmp_name']
      function image_resize($upload_file_tmp_name, $size, $destination, $maxisheight = 0 )
     {

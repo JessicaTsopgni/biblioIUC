@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +6,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  appName = 'MyBiblio';
-  title = 'biblioIUC';
-  constructor(private pageTitle: Title) {
+  constructor() {
 
   }
   ngOnInit() {
-    this.pageTitle.setTitle(this.appName + ' - Dashboard');
   }
 }

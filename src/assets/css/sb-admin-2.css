@@ -159,13 +159,13 @@ sup {
 }
 
 a {
-  color: #4e73df;
+  color: #1cc88a;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #224abe;
+  color: #13855c;
   text-decoration: underline;
 }
 
@@ -2246,6 +2246,7 @@ textarea.form-control {
 
 .btn.disabled, .btn:disabled {
   opacity: 0.65;
+  cursor: not-allowed;
 }
 
 a.btn.disabled,
@@ -2783,12 +2784,12 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #4e73df;
+  color: #1cc88a;
   text-decoration: none;
 }
 
 .btn-link:hover {
-  color: #224abe;
+  color: #13855c;
   text-decoration: underline;
 }
 
@@ -3082,7 +3083,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #4e73df;
+  background-color: #1cc88a;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -3435,8 +3436,8 @@ input[type="button"].btn-block {
 
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  border-color: #4e73df;
-  background-color: #4e73df;
+  border-color: #1cc88a;
+  background-color: #1cc88a;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
@@ -3500,8 +3501,8 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-  border-color: #4e73df;
-  background-color: #4e73df;
+  border-color: #1cc88a;
+  background-color: #1cc88a;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
@@ -3726,7 +3727,7 @@ input[type="button"].btn-block {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  background-color: #4e73df;
+  background-color: #1cc88a;
   border: 0;
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3757,7 +3758,7 @@ input[type="button"].btn-block {
 .custom-range::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  background-color: #4e73df;
+  background-color: #1cc88a;
   border: 0;
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3791,7 +3792,7 @@ input[type="button"].btn-block {
   margin-top: 0;
   margin-right: 0.2rem;
   margin-left: 0.2rem;
-  background-color: #4e73df;
+  background-color: #1cc88a;
   border: 0;
   border-radius: 1rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3930,7 +3931,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #4e73df;
+  background-color: #1cc88a;
 }
 
 .nav-fill .nav-item {
@@ -4595,7 +4596,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #4e73df;
+  color: #1cc88a;
   background-color: #fff;
   border: 1px solid #dddfeb;
 }
@@ -4628,8 +4629,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 1;
   color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #1cc88a;
+  border-color: #1cc88a;
 }
 
 .page-item.disabled .page-link {
@@ -5023,7 +5024,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #4e73df;
+  background-color: #1cc88a;
   transition: width 0.6s ease;
 }
 
@@ -5113,8 +5114,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #1cc88a;
+  border-color: #1cc88a;
 }
 
 .list-group-horizontal {
@@ -9998,8 +9999,8 @@ a:focus {
 }
 
 .topbar .dropdown-list .dropdown-header {
-  background-color: #4e73df;
-  border: 1px solid #4e73df;
+  background-color: #1cc88a;
+  border: 1px solid #1cc88a;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   color: #fff;
@@ -10161,7 +10162,7 @@ a:focus {
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-item.active,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item.active {
-  color: #4e73df;
+  color: #1cc88a;
   font-weight: 700;
 }
 
@@ -10974,7 +10975,7 @@ form.user .btn-user {
   content: attr(data-text);
   position: absolute;
   left: -2px;
-  text-shadow: 1px 0 #4e73df;
+  text-shadow: 1px 0 #1cc88a;
   top: 0;
   color: #5a5c69;
   background: #f8f9fc;
@@ -10984,7 +10985,7 @@ form.user .btn-user {
 }
 
 footer.sticky-footer {
-  padding: 2rem 0;
+  padding: 1rem 0;
   flex-shrink: 0;
 }
 
