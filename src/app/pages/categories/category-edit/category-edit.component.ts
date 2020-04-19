@@ -6,7 +6,7 @@ import { AppSettings } from 'src/app/app.settings';
 import { Functions } from 'src/app/common/functions';
 import { CategoryService } from 'src/app/providers/category.service';
 
-declare var $:any;
+declare var $: any;
 @Component({
   selector: 'app-category-edit',
   templateUrl: './category-edit.component.html',
@@ -21,19 +21,18 @@ export class CategoryEditComponent implements OnInit {
   responseTime = '';
   errors = null;
   constructor(
-    private categoryService: CategoryService, 
-    private functions: Functions, 
-    private route: ActivatedRoute, 
+    private categoryService: CategoryService,
+    private functions: Functions,
+    private route: ActivatedRoute,
     private appSettings: AppSettings
   ) {
-    this.init();    
-    this.appName =this.appSettings.appName;
+    this.init();
+    this.appName = this.appSettings.appName;
   }
 
   private init() {
     this.category = new CategoryModel(0, '', '', '', null, null, null, true);
-    if(this.functions.defaultContent)
-    {
+    if (this.functions.defaultContent) {
       $('#image').val('');
       $('#preview').html(this.functions.defaultContent);
     }
@@ -57,25 +56,25 @@ export class CategoryEditComponent implements OnInit {
   }
   uploadFile(event) {
     this.category.image = event.target.files[0] ? event.target.files[0] : null;
-    this.functions.readURL(document.getElementById('image'), 
-    $('#preview'), 2 * 1024, 
-    $('#preview').width() - 10, 
-    $('#preview').height() - 10)
+    this.functions.readURL(document.getElementById('image'),
+      $('#preview'), 2 * 1024,
+      $('#preview').width() - 10,
+      $('#preview').height() - 10)
   }
 
   save(myForm) {
-0    let startTime = performance.now();
+    let startTime = performance.now();
     this.categoryService.add(this.category)
-    .subscribe(
-      data =>  {
-        this.errors = null;
-        let category = <CategoryModel>data.response_data;
-        this.responseMessage = category.name + " enregistré avec succès.";
-      },
-      error => {
+      .subscribe(
+        data => {
+          this.errors = null;
+          let category = <CategoryModel>data.response_data;
+          this.responseMessage = category.name + " enregistré avec succès.";
+        },
+        error => {
           this.errors = error.error.response_data;
-      }
-    );
+        }
+      );
     myForm.form.markAsPristine();
     myForm.form.markAsUntouched();
     myForm.form.updateValueAndValidity();
