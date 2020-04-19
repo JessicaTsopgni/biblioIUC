@@ -23,6 +23,7 @@
 
         public function save($query, $params)
         {
+            //print_r($params);
             $stmt = $this->con->prepare($query);
             if(!empty($params))            
                 $stmt->execute($params);

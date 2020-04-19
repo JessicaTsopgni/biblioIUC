@@ -4,6 +4,7 @@
     require_once '../common/idispose.php';
     require_once '../entities/category.php';
     require_once '../repositories/exception-dao.php';
+    require_once '../repositories/duplicate-exception-dao.php';
     require_once '../repositories/category-dao.php';
     require_once 'exception-bll.php';
     require_once 'validation-exception-bll.php';
@@ -37,7 +38,7 @@
                 array_push($errors, "Le nom ne peut pas être nul !");
 
             $status = $category->status;
-            if(empty($status) || !is_numeric($status))
+            if(empty($status) || (!check_bool($status) && !is_numeric($status)))
                 array_push($errors, "Statut invalide !"); 
 
             $category_parent_id = $category->category_parent_id;
@@ -60,8 +61,14 @@
             $destination = $this->save_image($category->image, $new_file_name);            
             try
             {
-                $category->image = $new_file_name;
+                $category->image_link = $new_file_name;
+                $category->status = $category->status ? 1 : 0;
                 return $this->categoryDAO->add($category);
+            }
+            catch(DuplicateDAOException $e)
+            {             
+                $this->delete_image($destination);       
+                throw new BLLValidationException("Cette catégorie existe déjà !");
             }
             catch(DAOExeption $e)
             {             
@@ -72,7 +79,7 @@
             catch(Exception $e)
             { 
                 $this->delete_image($destination);       
-                error_log("\n\n".$e->errorMessage(), 3, LOG_ERROR_PATH);
+                error_log("\n\n".$e->getMessage(), 3, LOG_ERROR_PATH);
                 throw new BLLException("Une erreur lors de l'enregistrement! Réessayer plus tard svp.");
             }
             return null;
