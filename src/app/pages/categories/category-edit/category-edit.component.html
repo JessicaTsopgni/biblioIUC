@@ -60,7 +60,7 @@
                 <i class="fas fa-check"></i>
                 Enregistrer
             </button>
-            <div class="form-group progress mt-1" [class.d-none]="!isBusy" style="height: 5px;">
+            <div class="form-group progress mt-1"*ngIf="isBusy" style="height: 5px;">
                 <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar"
                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                 </div>
@@ -79,14 +79,18 @@
  data-delay="5000"
     style="min-width:300px;position: absolute; top: 0rem; right: 1.5rem;">
     <div class="toast-header">
-
-        <strong class="mr-auto"><i class="text-success fas fa-book"></i> MyBiblio</strong>
-        <small>54 sec</small>
+        <strong class="mr-auto"><i class="text-success fas fa-book" [class.text-danger]="errors"></i> {{appName}}</strong>
+        <small>{{responseTime}}</small>
         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="toast-body text-success">
-       <i class="fas fa-thumbs-up"></i> Enregistrement effectué avec succès.
+    <div [class.d-none]="errors" class="toast-body text-success">
+       <i class="fas fa-thumbs-up"></i> {{responseMessage}}.
     </div>
+    <div [class.d-none]="!errors" class="toast-body text-danger">
+        <ul> 
+            <li *ngFor="let error of errors">{{error}}</li>
+        </ul>
+     </div>
 </div>

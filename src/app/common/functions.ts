@@ -68,4 +68,16 @@ export class Functions
             $(target).html(this.defaultContent);
         }
     }
+    sleep(milliseconds) {
+        const date = Date.now();
+        let currentDate = null;
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+      }
+
+      get_time_diff_sec(start, end){ 
+        let time_diff = (end - start) / 1000;
+        return time_diff < 1 ? "a l'instant" : Math.floor(time_diff) + " sec."
+      }
 }

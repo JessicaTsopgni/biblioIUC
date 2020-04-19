@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AppSettings } from '../app.settings';
+import { Observable } from 'rxjs';
+import { JsonObject } from '../models/json-object.model';
 
 
 @Injectable({
@@ -11,20 +13,20 @@ export class BaseService {
 
   constructor(private http: HttpClient, private appService: AppSettings) { }
 
-  get(url: string) {
-    return this.http.get(`${this.appService.baseUrl}${url}`);
+  get(url: string):Observable<JsonObject> {
+    return this.http.get<JsonObject>(`${this.appService.baseUrl}${url}`);
   }
 
-  post(url: string, data: any) {
-    return this.http.post(`${this.appService.baseUrl}${url}`, data);
+  post(url: string, data: any):Observable<JsonObject> {
+    return this.http.post<JsonObject>(`${this.appService.baseUrl}${url}`, data);
   }
 
-  put(url: string, data: any) {
-    return this.http.put(`${this.appService.baseUrl}${url}`, data);
+  put(url: string, data: any):Observable<JsonObject> {
+    return this.http.put<JsonObject>(`${this.appService.baseUrl}${url}`, data);
   }
 
-  delete(url: string) {
-    return this.http.delete(`${this.appService.baseUrl}${url}`);
+  delete(url: string):Observable<JsonObject> {
+    return this.http.delete<JsonObject>(`${this.appService.baseUrl}${url}`);
   }
 
   

@@ -16,20 +16,27 @@ export class CategoryEditComponent implements OnInit {
 
   category: CategoryModel;
   isBusy = false;
+  appName = '';
+  responseMessage = '';
+  responseTime = '';
+  errors = null;
   constructor(
     private categoryService: CategoryService, 
     private functions: Functions, 
     private route: ActivatedRoute, 
-    private appService: AppSettings
+    private appSettings: AppSettings
   ) {
-    this.init();
+    this.init();    
+    this.appName =this.appSettings.appName;
   }
 
   private init() {
     this.category = new CategoryModel(0, '', '', '', null, null, null, true);
     if(this.functions.defaultContent)
-    $('#image').val('');
-    $('#preview').html(this.functions.defaultContent);
+    {
+      $('#image').val('');
+      $('#preview').html(this.functions.defaultContent);
+    }
   }
 
   ngOnInit() {
@@ -37,9 +44,9 @@ export class CategoryEditComponent implements OnInit {
       this.category.id = Number(params.get("id"))
     });
     if (!this.category.id)
-      this.appService.setTitlePage('Création d\'une catégorie');
+      this.appSettings.setTitlePage('Création d\'une catégorie');
     else
-      this.appService.setTitlePage('Edition d\'une catégorie');
+      this.appSettings.setTitlePage('Edition d\'une catégorie');
 
     // this.category = this.route.paramMap.pipe(
     //   switchMap(params => {
@@ -56,11 +63,26 @@ export class CategoryEditComponent implements OnInit {
     $('#preview').height() - 10)
   }
 
-  save(form) {
-    this.isBusy = true;
-    this.categoryService.add(this.category);
-    this.isBusy = false;
+  save(myForm) {
+0    let startTime = performance.now();
+    this.categoryService.add(this.category)
+    .subscribe(
+      data =>  {
+        this.errors = null;
+        let category = <CategoryModel>data.response_data;
+        this.responseMessage = category.name + " enregistré avec succès.";
+      },
+      error => {
+          this.errors = error.error.response_data;
+      }
+    );
+    myForm.form.markAsPristine();
+    myForm.form.markAsUntouched();
+    myForm.form.updateValueAndValidity();
     this.init();
+    var endTime = performance.now();
+    this.responseTime = this.functions.get_time_diff_sec(startTime, endTime);
+    this.isBusy = false;
     $('.toast').toast('show');
   }
 }
