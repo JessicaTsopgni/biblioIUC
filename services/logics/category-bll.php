@@ -68,7 +68,7 @@
             catch(DuplicateDAOException $e)
             {             
                 $this->delete_image($destination);       
-                throw new BLLValidationException("Cette catégorie existe déjà !");
+                throw new BLLValidationException("Erreur de validation", array("Cette catégorie existe déjà !"));
             }
             catch(DAOExeption $e)
             {             
